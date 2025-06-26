@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeMee - Turn Your Resume into a Meme</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_SENSE_ID" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #d63031;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #6c5ce7;
+        }
+        
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .upload-section, .preview-section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .drop-area {
+            border: 3px dashed #74b9ff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .drop-area:hover {
+            background-color: #e3f2fd;
+            border-color: #0984e3;
+        }
+        
+        .drop-area.highlight {
+            background-color: #dfe6e9;
+            border-color: #00b894;
+        }
+        
+        button {
+            background-color: #00b894;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 10px 0;
+        }
+        
+        button:hover {
+            background-color: #008c6d;
+            transform: translateY(-2px);
+        }
+        
+        .preview {
+            min-height: 500px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .meme-resume {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .meme-section {
+            margin-bottom: 15px;
+        }
+        
+        .meme-heading {
+            color: #e84393;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            text-decoration: underline wavy;
+        }
+        
+        .ad-container {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px dashed #aaa;
+            text-align: center;
+            min-height: 90px;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #636e72;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        .download-btn {
+            background-color: #6c5ce7;
+        }
+        
+        .download-btn:hover {
+            background-color: #5649bd;
+        }
+        
+        /* Meme resume specific styles */
+        .meme-name {
+            font-size: 2.5rem;
+            color: #e84393;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .meme-title {
+            font-size: 1.5rem;
+            color: #0984e3;
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .meme-contact {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .meme-bullet {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        .meme-bullet:before {
+            content: "👉";
+            position: absolute;
+            left: -20px;
+        }
+        
+        .meme-skill {
+            display: inline-block;
+            background: #ffeaa7;
+            padding: 3px 10px;
+            border-radius: 15px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .meme-footer {
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+            color: #636e72;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ResumeMee 📄➡️😂</h1>
+        <p class="tagline">Turn your boring resume into a hilarious meme masterpiece!</p>
+    </header>
+    
+    <div class="container">
+        <div class="upload-section">
+            <h2>📤 Upload Your Resume</h2>
+            <div class="ad-container">
+                <div class="ad-label">Advertisement</div>
+                <!-- AdSense Ad Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_AD_SENSE_ID"
+                     data-ad-slot="YOUR_AD_UNIT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            <div id="dropArea" class="drop-area">
+                <p>📎 Drag & drop your resume here (PDF or TXT)</p>
+                <p>or</p>
+                <input type="file" id="fileInput" accept=".pdf,.txt" style="display: none;">
+                <button onclick="document.getElementById('fileInput').click()">Select File</button>
+            </div>
+            
+            <div id="fileInfo" style="display: none; margin-top: 10px;">
+                <p>Selected file: <span id="fileName"></span></p>
+                <button id="generateBtn">Generate Meme Resume 🪄</button>
+            </div>
+            
+            <div class="ad-container">
+                <div class="ad-label">Advertisement</div>
+                <!-- AdSense Ad Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_AD_SENSE_ID"
+                     data-ad-slot="YOUR_AD_UNIT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <h2>👀 Meme Resume Preview</h2>
+            <div class="preview">
+                <div id="memeResume" class="meme-resume">
+                    <p>Your meme resume will appear here after you upload a file and click generate!</p>
+                </div>
+            </div>
+            <button id="downloadBtn" class="download-btn" disabled>Download as PDF 📥</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Made with ❤️ and too much caffeine | Resumeme © 2023</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        // Set PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+        
+        // DOM elements
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const generateBtn = document.getElementById('generateBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const memeResume = document.getElementById('memeResume');
+        
+        let uploadedFile = null;
+        
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropArea.classList.add('highlight');
+        }
+        
+        function unhighlight() {
+            dropArea.classList.remove('highlight');
+        }
+        
+        // Handle dropped files
+        dropArea.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+        
+        // Handle selected files
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+        
+        function handleFiles(files) {
+            if (files.length > 0) {
+                uploadedFile = files[0];
+                fileName.textContent = uploadedFile.name;
+                fileInfo.style.display = 'block';
+                downloadBtn.disabled = true;
+            }
+        }
+        
+        // Generate meme resume
+        generateBtn.addEventListener('click', generateMemeResume);
+        
+        async function generateMemeResume() {
+            if (!uploadedFile) {
+                alert('Please upload a file first!');
+                return;
+            }
+            
+            let text = '';
+            
+            if (uploadedFile.type === 'application/pdf') {
+                // Handle PDF file
+                try {
+                    const arrayBuffer = await uploadedFile.arrayBuffer();
+                    const loadingTask = pdfjsLib.getDocument(arrayBuffer);
+                    const pdf = await loadingTask.promise;
+                    
+                    // Extract text from all pages
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                        const page = await pdf.getPage(i);
+                        const content = await page.getTextContent();
+                        const strings = content.items.map(item => item.str);
+                        text += strings.join(' ') + '\n';
+                    }
+                } catch (error) {
+                    console.error('Error parsing PDF:', error);
+                    alert('Error reading PDF file. Please try another file.');
+                    return;
+                }
+            } else if (uploadedFile.type === 'text/plain') {
+                // Handle text file
+                text = await uploadedFile.text();
+            } else {
+                alert('Unsupported file type. Please upload a PDF or text file.');
+                return;
+            }
+            
+            // Process the text and generate meme resume
+            const memeContent = processResumeText(text);
+            memeResume.innerHTML = memeContent;
+            downloadBtn.disabled = false;
+        }
+        
+        // Process resume text and add meme elements
+        function processResumeText(text) {
+            // This is a simplified parser - in a real app you'd want more sophisticated parsing
+            const lines = text.split('\n').filter(line => line.trim() !== '');
+            
+            // Extract common resume sections with simple pattern matching
+            let name = 'Your Name Here';
+            let title = 'Professional Human Being';
+            let contact = '📧 email@example.com | 📞 (123) 456-7890 | 🌐 yourwebsite.com';
+            let summary = 'I do stuff and things, sometimes well, sometimes not.';
+            let experience = [];
+            let education = [];
+            let skills = [];
+            
+            // Very basic parsing (real implementation would need more robust parsing)
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                
+                // Try to find name (usually first line)
+                if (i === 0 && line.split(' ').length <= 3 && line.split(' ').every(part => part[0] === part[0].toUpperCase())) {
+                    name = line;
+                }
+                
+                // Try to find title (often second line)
+                if (i === 1 && line.length < 50) {
+                    title = line;
+                }
+                
+                // Try to find contact info (often has email, phone, etc.)
+                if (line.includes('@') || line.includes('phone') || line.includes('http')) {
+                    contact = line;
+                }
+                
+                // Try to find summary/objective
+                if (line.toLowerCase().includes('summary') || line.toLowerCase().includes('objective')) {
+                    summary = lines[i+1] || summary;
+                }
+                
+                // Try to find experience
+                if (line.toLowerCase().includes('experience') || line.toLowerCase().includes('work history')) {
+                    let j = i + 1;
+                    while (j < lines.length && !isSectionHeader(lines[j])) {
+                        if (lines[j].trim() !== '') {
+                            experience.push(lines[j].trim());
+                        }
+                        j++;
+                    }
+                }
+                
+                // Try to find education
+                if (line.toLowerCase().includes('education') || line.toLowerCase().includes('degree')) {
+                    let j = i + 1;
+                    while (j < lines.length && !isSectionHeader(lines[j])) {
+                        if (lines[j].trim() !== '') {
+                            education.push(lines[j].trim());
+                        }
+                        j++;
+                    }
+                }
+                
+                // Try to find skills
+                if (line.toLowerCase().includes('skills') || line.toLowerCase().includes('technologies')) {
+                    let j = i + 1;
+                    while (j < lines.length && !isSectionHeader(lines[j])) {
+                        const skillsLine = lines[j].trim();
+                        if (skillsLine !== '') {
+                            skills = skills.concat(skillsLine.split(/[,;]/).map(s => s.trim()));
+                        }
+                        j++;
+                    }
+                }
+            }
+            
+            // Clean up arrays
+            experience = experience.filter(item => item.length > 5);
+            education = education.filter(item => item.length > 5);
+            skills = skills.filter(item => item.length > 2);
+            
+            // If we didn't find much, just use the original text with some meme-ification
+            if (experience.length === 0 && education.length === 0 && skills.length === 0) {
+                return createBasicMemeResume(name, title, contact, text);
+            }
+            
+            // Create the meme resume HTML
+            let html = `
+                <div class="meme-name">${name || 'Your Name Here'}</div>
+                <div class="meme-title">${addEmojis(title) || 'Professional Human Being'}</div>
+                <div class="meme-contact">${contact || '📧 email@example.com | 📞 (123) 456-7890 | 🌐 yourwebsite.com'}</div>
+                
+                <div class="meme-section">
+                    <div class="meme-heading">${randomEmoji()} About Me ${randomEmoji()}</div>
+                    <p>${memeifyText(summary || "I'm awesome at stuff. Hire me maybe?")}</p>
+                </div>
+                
+                <div class="meme-section">
+                    <div class="meme-heading">${randomEmoji()} Work Experience ${randomEmoji()}</div>
+                    ${experience.length > 0 ? 
+                       experience.slice(0, 3).map(exp => `<p class="meme-bullet">${memeifyText(exp)}</p>`).join('') : 
+                       `<p>${memeifyText("I've worked at places doing things that mattered (probably).")}</p>`}
+                </div>
+                
+                <div class="meme-section">
+                    <div class="meme-heading">${randomEmoji()} Education ${randomEmoji()}</div>
+                    ${education.length > 0 ? 
+                       education.slice(0, 2).map(edu => `<p class="meme-bullet">${memeifyText(edu)}</p>`).join('') : 
+                       `<p>${memeifyText("I went to school and learned stuff. Maybe even graduated!")}</p>`}
+                </div>
+                
+                <div class="meme-section">
+                    <div class="meme-heading">${randomEmoji()} Skills ${randomEmoji()}</div>
+                    ${skills.length > 0 ? 
+                       skills.slice(0, 10).map(skill => `<span class="meme-skill">${addEmojis(skill)}</span>`).join('') : 
+                       `<p>${memeifyText("I can do computer things and people things, sometimes at the same time!")}</p>`}
+                </div>
+                
+                <div class="meme-footer">
+                    References available upon request (if I like you) ${randomEmoji()}
+                </div>
+            `;
+            
+            return html;
+        }
+        
+        function createBasicMemeResume(name, title, contact, text) {
+            // Simple fallback if we can't parse the resume well
+            const lines = text.split('\n').filter(line => line.trim() !== '');
+            const randomLines = lines.slice(0, 10).map(line => `<p class="meme-bullet">${memeifyText(line)}</p>`).join('');
+            
+            return `
+                <div class="meme-name">${name || 'Your Name Here'}</div>
+                <div class="meme-title">${addEmojis(title) || 'Professional Human Being'}</div>
+                <div class="meme-contact">${contact || '📧 email@example.com | 📞 (123) 456-7890 | 🌐 yourwebsite.com'}</div>
+                
+                <div class="meme-section">
+                    <div class="meme-heading">${randomEmoji()} Here's My Resume I Guess ${randomEmoji()}</div>
+                    ${randomLines || `<p>${memeifyText("I do things that are important to someone, probably.")}</p>`}
+                </div>
+                
+                <div class="meme-footer">
+                    Made with Resumeme - because normal resumes are boring ${randomEmoji()}
+                </div>
+            `;
+        }
+        
+        function isSectionHeader(line) {
+            // Very basic detection of section headers
+            return line.trim().endsWith(':') || 
+                   (line.split(' ').length < 5 && line === line.toUpperCase());
+        }
+        
+        function memeifyText(text) {
+            if (!text) return text;
+            
+            // Add some random meme phrases
+            const memePhrases = [
+                " (like a boss!)",
+                " (nailed it!)",
+                " (sorta...)",
+                " (I think?)",
+                " (google helped)",
+                " (fake it till you make it!)",
+                " (no cap!)",
+                " (lowkey flex)",
+                " (don't @ me)"
+            ];
+            
+            // Add some random emojis
+            const emojis = ['😂', '🤣', '😎', '🤷', '💯', '🔥', '✨', '👌', '🙌', '🤔'];
+            
+            // Randomly apply transformations
+            let result = text;
+            
+            // 30% chance to add a meme phrase
+            if (Math.random() < 0.3) {
+                result += memePhrases[Math.floor(Math.random() * memePhrases.length)];
+            }
+            
+            // 40% chance to add some emojis
+            if (Math.random() < 0.4) {
+                const numEmojis = Math.floor(Math.random() * 3) + 1;
+                for (let i = 0; i < numEmojis; i++) {
+                    result += ' ' + emojis[Math.floor(Math.random() * emojis.length)];
+                }
+            }
+            
+            // 20% chance to make part of it uppercase
+            if (Math.random() < 0.2) {
+                const words = result.split(' ');
+                if (words.length > 3) {
+                    const start = Math.floor(Math.random() * (words.length - 2));
+                    const end = start + Math.floor(Math.random() * 3) + 1;
+                    for (let i = start; i < end && i < words.length; i++) {
+                        words[i] = words[i].toUpperCase();
+                    }
+                    result = words.join(' ');
+                }
+            }
+            
+            return result;
+        }
+        
+        function addEmojis(text) {
+            if (!text) return text;
+            
+            // Map common words to emojis
+            const emojiMap = {
+                'developer': '👨‍💻',
+                'engineer': '🔧',
+                'designer': '🎨',
+                'manager': '👔',
+                'director': '🎬',
+                'student': '🎓',
+                'expert': '🧠',
+                'creative': '✨',
+                'lead': '🚀',
+                'senior': '👴',
+                'junior': '👶',
+                'analyst': '📊',
+                'specialist': '🔍',
+                'ninja': '🥷',
+                'guru': '🧙',
+                'wizard': '🧙‍♂️',
+                'rockstar': '🎸',
+                'team': '👥',
+                'code': '💻',
+                'web': '🌐',
+                'mobile': '📱',
+                'software': '🖥️',
+                'hardware': '🔩',
+                'data': '📈',
+                'cloud': '☁️',
+                'AI': '🤖',
+                'ML': '🧠',
+                'blockchain': '⛓️',
+                'UX': '✏️',
+                'UI': '🎨',
+                'full stack': '🥞',
+                'frontend': '👓',
+                'backend': '🔙'
+            };
+            
+            let result = text;
+            for (const [word, emoji] of Object.entries(emojiMap)) {
+                const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                result = result.replace(regex, `${word} ${emoji}`);
+            }
+            
+            return result;
+        }
+        
+        function randomEmoji() {
+            const emojis = ['😂', '🤣', '😎', '🤷', '💯', '🔥', '✨', '👌', '🙌', '🤔', '🧠', '🚀', '🎯', '🏆', '👑', '💪', '🤘', '✌️', '🤙'];
+            return emojis[Math.floor(Math.random() * emojis.length)];
+        }
+        
+        // Download as PDF
+        downloadBtn.addEventListener('click', downloadPDF);
+        
+        function downloadPDF() {
+            const element = memeResume;
+            const opt = {
+                margin: 10,
+                filename: 'meme-resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Generate PDF
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+</body>
+</html>
